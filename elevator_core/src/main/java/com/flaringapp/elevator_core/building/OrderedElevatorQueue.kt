@@ -3,7 +3,7 @@ package com.flaringapp.elevator_core.building
 import com.flaringapp.elevator_core.person.PersonId
 
 @JvmInline
-value class ElevatorQueue(private val queue: ArrayDeque<PersonId>) {
+value class OrderedElevatorQueue(private val queue: ArrayDeque<PersonId>) {
 
     constructor(): this(ArrayDeque())
 

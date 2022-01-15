@@ -9,6 +9,11 @@ class Building(
     val elevators: List<Elevator>,
 ) {
 
+    init {
+        require(floors.size > 1) { "There should be at least 2 floors in the building!" }
+        require(elevators.isNotEmpty()) { "There should be at least 1 elevator in the building!" }
+    }
+
     fun firstElevator(): Elevator = elevators.first()
 
 }
