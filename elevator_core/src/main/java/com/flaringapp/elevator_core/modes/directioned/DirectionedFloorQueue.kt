@@ -9,7 +9,7 @@ import com.flaringapp.elevator_core.person.PersonId
 import com.flaringapp.elevator_core.queue.FloorQueue
 import com.flaringapp.elevator_core.utils.removeAll
 
-class DirectionedSeparateFloorQueue(
+class DirectionedFloorQueue(
     private val building: Building,
 ) : FloorQueue {
 
