@@ -4,6 +4,8 @@ import com.flaringapp.elevator_core.floor.FloorNumber
 
 interface PersonElevatorCaller {
 
-    fun call(initialFloor: FloorNumber, targetFloor: FloorNumber)
+    fun callOutside(initialFloor: FloorNumber, targetFloor: FloorNumber)
+
+    fun callInside(targetFloor: FloorNumber)
 
 }

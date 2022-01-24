@@ -8,7 +8,7 @@ class DirectionedPersonElevatorCaller(
     private val panel : DirectionedElevatorPanel
 ) : PersonElevatorCaller {
 
-    override fun call(initialFloor: FloorNumber, targetFloor: FloorNumber) {
+    override fun callOutside(initialFloor: FloorNumber, targetFloor: FloorNumber) {
         val compare = initialFloor compareTo targetFloor
         val direction = when {
             compare > 0 -> Direction.Downwards
@@ -16,5 +16,9 @@ class DirectionedPersonElevatorCaller(
             else -> error("Person tries to call elevator to the same floor")
         }
         panel.call(initialFloor, direction)
+    }
+
+    override fun callInside(targetFloor: FloorNumber) {
+        panel.requestFloor(targetFloor)
     }
 }
