@@ -9,7 +9,6 @@ import com.flaringapp.elevator_core.queue.FloorQueue
 import com.flaringapp.elevator_core.queue.FloorQueueProvider
 import com.flaringapp.elevator_core.utils.removeAll
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 
 class BuildingQueueInteractorImpl(
@@ -21,10 +20,10 @@ class BuildingQueueInteractorImpl(
 
     private val queueFlows: MutableMap<FloorNumber, MutableStateFlow<PersonId?>> = HashMap()
 
-    override fun enterQueue(floor: FloorNumber, person: Person) {
+    override fun enterQueue(floor: FloorNumber, person: Person): ElevatorId {
         val queue = resolveQueue(floor)
         val wasQueueEmpty = queue.isEmpty()
-        queue.enterQueue(person).also { elevator ->
+        return queue.enterQueue(person).also { elevator ->
             if (wasQueueEmpty) {
                 notifyQueueFlow(floor, elevator, queue)
             }
