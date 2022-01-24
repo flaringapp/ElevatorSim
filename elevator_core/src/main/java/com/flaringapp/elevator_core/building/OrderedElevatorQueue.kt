@@ -20,4 +20,8 @@ value class OrderedElevatorQueue(private val queue: ArrayDeque<PersonId>) {
         return queue.removeFirst()
     }
 
+    fun head(): PersonId {
+        return queue.first()
+    }
+
 }

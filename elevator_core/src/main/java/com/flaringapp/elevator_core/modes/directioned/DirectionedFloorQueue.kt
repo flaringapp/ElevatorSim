@@ -2,7 +2,6 @@ package com.flaringapp.elevator_core.modes.directioned
 
 import com.flaringapp.elevator_core.building.Building
 import com.flaringapp.elevator_core.building.OrderedElevatorQueue
-import com.flaringapp.elevator_core.elevator.Elevator
 import com.flaringapp.elevator_core.elevator.ElevatorId
 import com.flaringapp.elevator_core.person.Person
 import com.flaringapp.elevator_core.person.PersonId
@@ -15,15 +14,21 @@ class DirectionedFloorQueue(
 
     private val queues: LinkedHashMap<ElevatorId, OrderedElevatorQueue> = LinkedHashMap()
 
-    override fun enterQueue(person: Person) {
+    override fun enterQueue(person: Person): ElevatorId {
         val elevator = findElevatorToEnter()
         val queue = resolveQueue(elevator)
         queue.enter(person.id)
+        return elevator
     }
 
-    override fun pollPerson(elevator: Elevator): PersonId {
-        val elevatorQueue = requireQueue(elevator.id)
+    override fun pollPerson(elevator: ElevatorId): PersonId {
+        val elevatorQueue = requireQueue(elevator)
         return elevatorQueue.exit()
+    }
+
+    override fun peekPerson(elevator: ElevatorId): PersonId {
+        val elevatorQueue = requireQueue(elevator)
+        return elevatorQueue.head()
     }
 
     override fun isEmpty(): Boolean {
