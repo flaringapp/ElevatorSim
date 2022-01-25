@@ -7,6 +7,5 @@ import com.flaringapp.elevator_core.person.Person
 data class ElevatorState(
     var movementDirection: Direction,
     var currentFloor: FloorNumber,
-    var passengers: MutableList<Person>,
     var isOpened: Boolean,
 )
