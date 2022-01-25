@@ -23,9 +23,9 @@ class DirectionedElevatorBehaviourImpl(
 
     private val directionCalledFloorsProvider = DirectionCalledFloorsProvider(this)
 
-    override fun chooseNextFloor(floor: FloorNumber): FloorNumber? {
+    override fun chooseNextFloor(currentFloor: FloorNumber): FloorNumber? {
         val nextFloorPicker = nextFloorPickerProvider.transformFor(elevator)
-        return nextFloorPicker.pickClosestFloor(floor, this)
+        return nextFloorPicker.pickClosestFloor(currentFloor, this)
     }
 
     override fun processFloorReached(floor: FloorNumber) {

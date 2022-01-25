@@ -4,7 +4,7 @@ import com.flaringapp.elevator_core.floor.FloorNumber
 
 interface ElevatorBehaviour {
 
-    fun chooseNextFloor(floor: FloorNumber): FloorNumber?
+    fun chooseNextFloor(currentFloor: FloorNumber): FloorNumber?
 
     fun processFloorReached(floor: FloorNumber)
 
