@@ -2,6 +2,9 @@
 
 package com.flaringapp.elevator_core.utils
 
+import java.util.concurrent.locks.Lock
+import kotlin.concurrent.withLock
+
 /**
  * Removes all elements from this [MutableMap] that match the given [predicate].
  *
@@ -35,4 +38,8 @@ inline fun <T, U> MutableMap<T, U>.filterInPlace(
         }
     }
     return result
+}
+
+inline fun Lock.use(action: () -> Unit) {
+    withLock(action)
 }
