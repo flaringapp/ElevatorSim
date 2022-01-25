@@ -4,6 +4,6 @@ import com.flaringapp.elevator_core.floor.FloorNumber
 
 interface ElevatorPanel {
 
-    fun requestFloor(floor: FloorNumber)
+    fun requestTargetFloor(floor: FloorNumber)
 
 }

@@ -6,6 +6,7 @@ import com.flaringapp.elevator_core.elevator.Elevator
 import com.flaringapp.elevator_core.floor.FloorNumber
 import java.util.*
 
+// TODO synchronize
 class DirectionedElevatorBehaviourImpl(
     higherFloorPicker: DirectionedElevatorFloorPicker,
     lowerFloorPicker: DirectionedElevatorFloorPicker,
