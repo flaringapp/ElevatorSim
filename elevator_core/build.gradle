@@ -16,3 +16,11 @@ dependencies {
     testImplementation "junit:junit:4.13.2"
     testImplementation "io.mockk:mockk:1.12.2"
 }
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        freeCompilerArgs += [
+                '-Xopt-in=kotlin.RequiresOptIn',
+        ]
+    }
+}
