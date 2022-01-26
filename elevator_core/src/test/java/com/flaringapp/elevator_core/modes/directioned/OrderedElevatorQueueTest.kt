@@ -1,4 +1,4 @@
-package com.flaringapp.elevator_core.building
+package com.flaringapp.elevator_core.modes.directioned
 
 import com.flaringapp.elevator_core.person.PersonId
 import org.junit.Before

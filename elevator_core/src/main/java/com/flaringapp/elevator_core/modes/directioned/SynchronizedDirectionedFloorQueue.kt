@@ -1,7 +1,6 @@
 package com.flaringapp.elevator_core.modes.directioned
 
 import com.flaringapp.elevator_core.building.Building
-import com.flaringapp.elevator_core.building.OrderedElevatorQueue
 import com.flaringapp.elevator_core.elevator.ElevatorId
 import com.flaringapp.elevator_core.person.Person
 import com.flaringapp.elevator_core.person.PersonId
