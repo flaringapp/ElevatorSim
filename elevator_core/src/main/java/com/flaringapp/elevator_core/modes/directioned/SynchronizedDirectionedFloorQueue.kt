@@ -7,12 +7,13 @@ import com.flaringapp.elevator_core.person.Person
 import com.flaringapp.elevator_core.person.PersonId
 import com.flaringapp.elevator_core.queue.FloorQueue
 import com.flaringapp.elevator_core.utils.removeAll
+import java.util.concurrent.ConcurrentHashMap
 
-class DirectionedFloorQueue(
+class SynchronizedDirectionedFloorQueue(
     private val building: Building,
 ) : FloorQueue {
 
-    private val queues: LinkedHashMap<ElevatorId, OrderedElevatorQueue> = LinkedHashMap()
+    private val queues = ConcurrentHashMap<ElevatorId, OrderedElevatorQueue>()
 
     override fun enterQueue(person: Person): ElevatorId {
         val elevator = findElevatorToEnter()

@@ -4,9 +4,9 @@ import com.flaringapp.elevator_core.building.Building
 import com.flaringapp.elevator_core.queue.FloorQueue
 import com.flaringapp.elevator_core.queue.FloorQueueFactory
 
-class DirectionedFloorQueueFactory : FloorQueueFactory {
+class SynchronizedDirectionedFloorQueueFactory : FloorQueueFactory {
 
     override fun createQueue(building: Building): FloorQueue {
-        return DirectionedFloorQueue(building)
+        return SynchronizedDirectionedFloorQueue(building)
     }
 }
