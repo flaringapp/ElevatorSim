@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.cancellable
 
 suspend fun <T> Flow<T>.collectUntil(condition: (T) -> Boolean) {
-    coroutineScope {
+    cancellableCoroutineScope {
         cancellable().collect {
             if (!condition(it)) return@collect
             cancel()
