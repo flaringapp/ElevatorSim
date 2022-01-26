@@ -6,14 +6,14 @@ import com.flaringapp.elevator_core.floor.FloorNumber
 import com.flaringapp.elevator_core.person.Person
 import com.flaringapp.elevator_core.person.PersonId
 import com.flaringapp.elevator_core.queue.FloorQueue
-import com.flaringapp.elevator_core.queue.FloorQueueProvider
+import com.flaringapp.elevator_core.queue.FloorQueueFactory
 import com.flaringapp.elevator_core.utils.removeAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 class BuildingQueueInteractorImpl(
     private val building: Building,
-    private val floorQueueProvider: FloorQueueProvider,
+    private val floorQueueFactory: FloorQueueFactory,
 ) : BuildingQueueInteractor {
 
     private val queues: MutableMap<FloorNumber, FloorQueue> = HashMap()
@@ -54,7 +54,7 @@ class BuildingQueueInteractorImpl(
     }
 
     private fun createQueue(floor: FloorNumber): FloorQueue {
-        return floorQueueProvider.createQueue(building).also {
+        return floorQueueFactory.createQueue(building).also {
             queues[floor] = it
         }
     }
